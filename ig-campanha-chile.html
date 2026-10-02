@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>iG Pousada · Campanha Chile para a baixa temporada</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#FFFFFF; --surface:#FFF7E0; --ink:#000000; --muted:#555049; --line:#E8DDBC;
+  --gold:#FFCF7A; --gold-deep:#E9A93A; --gold-text:#7A5200; --black:#000000; --on-black:#F7F3E8;
+  --display:"Anton","Impact","Haettenschweiler","Arial Narrow Bold",sans-serif;
+  --body:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#000000; --surface:#141210; --ink:#F7F3E8; --muted:#A8A196; --line:#2B2720; --gold-text:#FFCF7A;
+  }
+}
+:root[data-theme="dark"]{ --bg:#000000; --surface:#141210; --ink:#F7F3E8; --muted:#A8A196; --line:#2B2720; --gold-text:#FFCF7A; }
+html{background:#000;scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth;}
+*,*::before,*::after{box-sizing:inherit;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;}
+h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;line-height:1.02;}
+h2{font-size:clamp(34px,5.4vw,56px);margin-bottom:12px;}
+h3{font-size:24px;margin-bottom:8px;}
+p{margin:0 0 14px;max-width:64ch;}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px;}
+.muted{color:var(--muted);} .small{font-size:14px;}
+a{color:inherit;}
+:focus-visible{outline:3px solid var(--gold-deep);outline-offset:2px;}
+
+/* hero */
+.hero{background:#000;color:var(--on-black);position:relative;overflow:hidden;}
+.hero .deco{position:absolute;right:-60px;top:-40px;width:min(620px,90vw);opacity:.14;pointer-events:none;}
+.hero .inner{position:relative;padding:34px 20px 72px;max-width:1080px;margin:0 auto;}
+.brand{display:flex;align-items:center;gap:14px;margin-bottom:48px;}
+.brand svg{width:78px;height:auto;flex:none;}
+.brand b{font-family:var(--display);font-weight:400;font-size:22px;line-height:1.1;}
+.brand span{display:block;font-size:14px;color:#BDB5A4;font-family:var(--body);}
+.hero h1{font-size:clamp(52px,10.5vw,124px);max-width:11ch;}
+.hero .lead{font-family:var(--display);font-size:clamp(26px,4.2vw,44px);color:var(--gold);margin:22px 0 20px;line-height:1.1;max-width:20ch;}
+.hero p{color:#D9D2C1;max-width:58ch;}
+.btn{display:inline-block;background:var(--gold);color:#000;font-weight:700;padding:14px 24px;text-decoration:none;border:0;font:inherit;font-weight:700;cursor:pointer;}
+.btn:hover{background:#FFD98F;}
+
+section.blk{padding:72px 0 8px;}
+.lede{color:var(--muted);max-width:60ch;margin-bottom:28px;}
+
+/* calculator */
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:28px;align-items:start;}
+@media (max-width:820px){.calc{grid-template-columns:1fr;}}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.fields label{display:block;font-size:14px;color:var(--muted);}
+.fields input,.budget input{width:100%;margin-top:4px;padding:10px 11px;font:inherit;font-size:17px;border:1px solid var(--line);background:var(--bg);color:var(--ink);}
+.fields .full{grid-column:1/-1;}
+.result{background:#000;color:var(--on-black);padding:26px 26px 22px;}
+.result p{max-width:none;color:#D9D2C1;margin-bottom:10px;}
+.result .n{font-family:var(--display);font-size:1.5em;color:var(--gold);line-height:1;}
+.result .big{font-family:var(--display);font-size:clamp(28px,3.6vw,40px);line-height:1.12;color:var(--on-black);margin-bottom:16px;}
+.result hr{border:0;border-top:1px solid #3A352B;margin:16px 0;}
+
+/* timeline */
+.tl{display:grid;grid-template-columns:repeat(12,1fr);gap:4px;margin:6px 0 10px;}
+.tl .m{font-size:12px;color:var(--muted);text-align:center;padding-bottom:2px;}
+.tl .ph{padding:10px 10px;font-family:var(--display);font-size:clamp(14px,2vw,22px);line-height:1.1;color:#000;min-height:52px;display:flex;align-items:center;}
+.p1{background:#E8DDBC;} .p2{background:var(--gold);} .p3{background:var(--gold-deep);} .p4{background:#000;color:var(--gold)!important;} .p5{background:#E8DDBC;}
+.tl .chile{grid-column:9/11;border:2px solid var(--ink);padding:5px 8px;font-size:12px;line-height:1.25;}
+.tl .here{grid-column:1/2;font-size:12px;font-weight:700;color:var(--gold-text);}
+@media (max-width:640px){.tl .m{font-size:10px;} .tl .chile{font-size:10px;}}
+.phases{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:26px;}
+@media (max-width:900px){.phases{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:560px){.phases{grid-template-columns:1fr;}}
+.phases div{border-top:4px solid var(--ink);padding-top:10px;}
+.phases h3{font-size:22px;}
+.phases .w{font-size:13px;color:var(--gold-text);font-weight:700;margin-bottom:6px;}
+ul.t{margin:0;padding-left:18px;} ul.t li{margin-bottom:6px;font-size:15.5px;}
+
+/* map */
+.mapwrap{display:grid;grid-template-columns:minmax(220px,300px) minmax(0,1fr);gap:34px;align-items:start;}
+@media (max-width:820px){.mapwrap{grid-template-columns:1fr;} .mapcol{max-width:280px;margin:0 auto;}}
+.mapcol svg{width:100%;height:auto;display:block;}
+.pin{cursor:pointer;}
+.pin circle{fill:var(--gold);stroke:var(--ink);stroke-width:2.5;}
+.pin text.num{font-family:var(--display);font-size:15px;fill:#000;text-anchor:middle;pointer-events:none;}
+.pin text.lab{font-family:var(--body);font-weight:600;font-size:13px;fill:var(--ink);}
+.pin.on circle{fill:#000;stroke:var(--gold-deep);} .pin.on text.num{fill:var(--gold);}
+.pin:focus-visible{outline:none;} .pin:focus-visible circle{stroke:var(--gold-deep);stroke-width:4;}
+.ribbon{fill:var(--surface);stroke:var(--ink);stroke-width:2;}
+.tick{stroke:var(--line);stroke-width:1.5;} .tick-l{font-size:11px;fill:var(--muted);font-family:var(--body);}
+.sea{font-size:11px;fill:var(--muted);font-family:var(--body);}
+.picker{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;}
+.picker button{font:inherit;font-weight:600;padding:8px 14px;border:2px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;}
+.picker button[aria-pressed="true"]{background:#000;color:var(--gold);border-color:#000;}
+.card{border:2px solid var(--ink);background:var(--surface);padding:22px 22px 14px;}
+.card h3{font-size:34px;margin-bottom:2px;}
+.tag{display:inline-block;background:var(--gold);color:#000;font-weight:700;font-size:13px;padding:2px 9px;margin-bottom:12px;}
+.card dl{margin:0;}
+.card dt{font-weight:700;font-size:14px;color:var(--gold-text);margin-top:12px;}
+.card dd{margin:2px 0 0;max-width:62ch;}
+.ad{background:#000;color:var(--on-black);padding:14px 16px;margin-top:6px;}
+.ad b{display:block;font-family:var(--display);font-weight:400;font-size:24px;color:var(--gold);line-height:1.1;margin-bottom:4px;}
+.budget{margin-top:22px;display:flex;gap:14px;align-items:end;flex-wrap:wrap;}
+.budget label{font-size:14px;color:var(--muted);}
+.budget input{width:170px;}
+
+/* steps + footer */
+ol.steps{margin:0;padding:0;list-style:none;counter-reset:s;display:grid;gap:0;}
+ol.steps li{counter-increment:s;display:grid;grid-template-columns:54px 1fr;gap:12px;padding:16px 0;border-top:1px solid var(--line);}
+ol.steps li::before{content:counter(s);font-family:var(--display);font-size:38px;color:var(--gold-text);line-height:1;}
+ol.steps b{display:block;font-size:18px;}
+footer{background:#000;color:#BDB5A4;margin-top:80px;padding:34px 0 40px;font-size:13.5px;}
+footer .wrap > p{max-width:90ch;}
+footer ul{margin:8px 0 0;padding-left:18px;} footer li{margin-bottom:5px;}
+footer b{color:var(--on-black);}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <g id="crown">
+      <path d="M0,0 C-14,-20 -34,-24 -50,-8 C-34,-14 -16,-10 0,0Z"/>
+      <path d="M0,0 C14,-20 34,-24 50,-8 C34,-14 16,-10 0,0Z"/>
+      <path d="M0,0 C-12,-8 -30,-6 -44,10 C-28,2 -12,4 0,0Z"/>
+      <path d="M0,0 C12,-8 30,-6 44,10 C28,2 12,4 0,0Z"/>
+      <path d="M0,0 C-6,-16 -4,-28 2,-34 C4,-22 4,-10 0,0Z"/>
+    </g>
+  </defs>
+</svg>
+
+<header class="hero">
+  <svg class="deco" viewBox="0 0 240 250" aria-hidden="true">
+    <g fill="#FFCF7A" stroke="none">
+      <use href="#crown" transform="translate(84,78) rotate(-6)"/>
+      <use href="#crown" transform="translate(156,78) rotate(6)"/>
+    </g>
+    <path d="M86,84 C62,130 54,185 58,238" stroke="#FFCF7A" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <path d="M154,84 C178,130 186,185 182,238" stroke="#FFCF7A" stroke-width="7" stroke-linecap="round" fill="none"/>
+  </svg>
+  <div class="inner">
+    <div class="brand">
+      <svg viewBox="0 0 240 250" role="img" aria-label="Logo iG Pousada">
+        <rect width="240" height="250" fill="#fff"/>
+        <g fill="#FFCF7A"><use href="#crown" transform="translate(84,78) rotate(-6)"/><use href="#crown" transform="translate(156,78) rotate(6)"/></g>
+        <path d="M86,84 C62,130 54,185 58,238" stroke="#FFCF7A" stroke-width="7" stroke-linecap="round" fill="none"/>
+        <path d="M154,84 C178,130 186,185 182,238" stroke="#FFCF7A" stroke-width="7" stroke-linecap="round" fill="none"/>
+        <text x="120" y="238" text-anchor="middle" font-family="Anton,Impact,'Arial Narrow Bold',sans-serif" font-size="140" fill="#000">iG</text>
+      </svg>
+      <div><b>iG Pousada e Restaurante</b><span>Canasvieiras, Florianópolis</span></div>
+    </div>
+    <h1>Chega de pagar pra trabalhar no inverno.</h1>
+    <div class="lead">Sócio da Booking e ela ainda te sabota?</div>
+    <p>Desde 1º de julho, o programa Preferred da Booking cobra 18% por diária, contra 15% antes. Segundo as entidades do setor, quem não adere ao percentual maior perde destaque nas buscas. O inverno de 2027 se decide no verão que começa agora.</p>
+    <p class="small" style="color:#BDB5A4">Confirme no extranet se a iG participa do Preferred e qual comissão está valendo.</p>
+    <p style="margin-top:26px"><a class="btn" href="#conta">Ver a conta do inverno</a></p>
+  </div>
+</header>
+
+<main>
+<section class="blk" id="conta">
+  <div class="wrap">
+    <h2>A conta do inverno</h2>
+    <p class="lede">Em baixa temporada a diária cai, a comissão não. Troque pelos números da iG e veja quanto fica na mão da Booking e quanto ficaria com você.</p>
+    <div class="calc">
+      <div class="fields">
+        <label>Diária média no inverno (R$)<input id="c-rate" type="number" min="0" value="200"></label>
+        <label>Noites por reserva<input id="c-nights" type="number" min="1" value="3"></label>
+        <label>Comissão da Booking (%)<input id="c-comm" type="number" min="0" step="0.5" value="18"></label>
+        <label>Reservas Booking por mês no inverno<input id="c-res" type="number" min="0" value="20"></label>
+        <label>Meses de baixa temporada<input id="c-months" type="number" min="1" max="9" value="3"></label>
+        <label>Taxa de pagamento direto (%)<input id="c-gate" type="number" min="0" step="0.5" value="3"></label>
+        <label class="full">Custo de tráfego por reserva direta (R$). É uma hipótese: o teste de campanha vai dizer o número real.<input id="c-cac" type="number" min="0" value="60"></label>
+      </div>
+      <div class="result" id="out" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section class="blk" id="verao">
+  <div class="wrap">
+    <h2>Por que começar agora, no verão</h2>
+    <p class="lede">Campanha de inverno não nasce em junho. Ela precisa de vídeo de casa cheia, contatos de hóspedes, avaliações e pixel com dados. Tudo isso o verão entrega, de graça, para quem se prepara.</p>
+
+    <div class="tl" aria-label="Calendário de outubro de 2026 a setembro de 2027">
+      <div class="m">out</div><div class="m">nov</div><div class="m">dez</div><div class="m">jan</div><div class="m">fev</div><div class="m">mar</div><div class="m">abr</div><div class="m">mai</div><div class="m">jun</div><div class="m">jul</div><div class="m">ago</div><div class="m">set</div>
+      <div class="ph p1" style="grid-column:1/3">Montar</div>
+      <div class="ph p2" style="grid-column:3/6">Verão: colher dados</div>
+      <div class="ph p3" style="grid-column:6/9">Aquecer</div>
+      <div class="ph p4" style="grid-column:9/12">Colher o inverno</div>
+      <div class="ph p5" style="grid-column:12/13">Medir</div>
+      <div class="here">Você está aqui</div>
+      <div style="grid-column:2/9"></div>
+      <div class="chile">Férias de inverno no Chile (2026)</div>
+    </div>
+    <p class="small muted">Em 2026, a maior parte do Chile teve férias escolares de 22/jun a 3/jul, Antofagasta e Los Lagos de 6 a 17/jul e Arica e Tarapacá de 13 a 24/jul. O calendário de 2027 precisa ser confirmado no Mineduc. Como as datas são escalonadas, dá para vender o mês de julho inteiro, não só duas semanas.</p>
+
+    <div class="phases">
+      <div>
+        <div class="w">Out e nov</div><h3>Montar a base</h3>
+        <ul class="t">
+          <li>Página de reserva direta com versão em espanhol.</li>
+          <li>Pixel e API de conversões, com UTM por cidade do Chile.</li>
+          <li>WhatsApp Business com resposta automática em espanhol.</li>
+          <li>Benefício claro para reservar direto (café reforçado ou saída tardia).</li>
+        </ul>
+      </div>
+      <div>
+        <div class="w">Dez a fev</div><h3>Gravar o verão</h3>
+        <ul class="t">
+          <li>Vídeos de casa cheia, praia e restaurante em movimento.</li>
+          <li>Contato de cada hóspede, com consentimento (LGPD).</li>
+          <li>Pedir avaliação e marcação @igpousada no check-out.</li>
+          <li>Teste leve de anúncios no Chile para aprender o que funciona.</li>
+        </ul>
+      </div>
+      <div>
+        <div class="w">Mar a mai</div><h3>Aquecer</h3>
+        <ul class="t">
+          <li>Remarketing para quem visitou o perfil e o site.</li>
+          <li>Abrir a venda de junho e julho com antecedência.</li>
+          <li>Conteúdo de baixa temporada: restaurante, sossego, preço e passeios.</li>
+        </ul>
+      </div>
+      <div>
+        <div class="w">Jun a ago</div><h3>Colher</h3>
+        <ul class="t">
+          <li>Campanhas por região, seguindo o calendário de férias de cada uma.</li>
+          <li>Oferta para datas vagas nas semanas mais fracas.</li>
+          <li>Cortar o que tem custo por reserva alto e dobrar no que rende.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="blk" id="mapa">
+  <div class="wrap">
+    <h2>Mapa de campanhas no Chile</h2>
+    <p class="lede">Seis pins, em ordem de prioridade. Comece por Santiago, aprenda, e só então espalhe a verba. Clique num pin para ver público, anúncio e janela de cada praça.</p>
+    <div class="mapwrap">
+      <div class="mapcol"><svg id="map" viewBox="0 0 260 660" role="group" aria-label="Mapa esquemático do Chile com seis campanhas"></svg>
+        <p class="small muted" style="margin-top:6px">Esquema ilustrativo, não é cartografia. Norte no topo.</p>
+      </div>
+      <div>
+        <div class="picker" id="picker"></div>
+        <div class="card" id="card" aria-live="polite"></div>
+        <div class="budget">
+          <label>Verba mensal de teste no Chile (R$)<input id="budget" type="number" min="0" step="100" value="3000"></label>
+          <span class="small muted" style="max-width:34ch">A divisão por praça é uma sugestão inicial. Ajuste conforme o custo por reserva real.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="blk" id="proximos">
+  <div class="wrap">
+    <h2>Antes do primeiro peso investido</h2>
+    <ol class="steps">
+      <li><div><b>Confirmar a comissão e o programa na Booking</b>Saber se a iG está no Preferred e quanto paga hoje. É a base da conta do inverno.</div></li>
+      <li><div><b>Fechar o canal direto</b>Página de reserva, WhatsApp em espanhol e o benefício para quem reserva direto.</div></li>
+      <li><div><b>Instalar a medição</b>Pixel, API de conversões e UTM por cidade, para saber qual pin dá reserva e qual só dá clique.</div></li>
+      <li><div><b>Produzir material de verão</b>Vídeos e fotos reais de dezembro a fevereiro. Hoje o perfil tem poucas publicações.</div></li>
+      <li><div><b>Rodar o teste de Santiago</b>Verba pequena, 3 criativos, 3 semanas. Decidir com dados se abre Valparaíso, Concepción e as regiões com férias em julho.</div></li>
+    </ol>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>Fontes e limites</b></p>
+    <ul>
+      <li>Comissão Preferred de 15% para 18% desde 1º/jul/2026 e alegação de perda de destaque nas buscas: representação das entidades da hotelaria ao Cade, noticiada por Brasilturis e Mercado &amp; Eventos (jun/2026).</li>
+      <li>Férias de inverno 2026 no Chile: calendário do Mineduc, noticiado por Radio Agricultura e En Cancha. O calendário 2027 deve ser confirmado.</li>
+      <li>Voo direto Santiago a Florianópolis e duração de cerca de 3h20: página da LATAM. Frequências variam por temporada.</li>
+      <li>Demanda chilena pela iG é hipótese a testar. Diária, reservas e custo por reserva da calculadora são valores de exemplo para você editar. A divisão de verba é sugestão.</li>
+      <li>O logotipo desta página é uma recriação a partir do print do perfil. Para o arquivo oficial, envie o original da marca.</li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+(function(){
+  function $(id){ return document.getElementById(id); }
+  function n(id){ var v = parseFloat($(id).value); return isFinite(v) ? v : 0; }
+  function brl(v){ return 'R$ ' + v.toLocaleString('pt-BR', {minimumFractionDigits:2, maximumFractionDigits:2}); }
+  function brl0(v){ return 'R$ ' + Math.round(v).toLocaleString('pt-BR'); }
+
+  /* ---------- calculadora ---------- */
+  function calc(){
+    var total = n('c-rate') * n('c-nights');
+    var commPer = total * n('c-comm') / 100;
+    var directPer = n('c-cac') + total * n('c-gate') / 100;
+    var save = commPer - directPer;
+    var season = commPer * n('c-res') * n('c-months');
+    var keep = save * n('c-res') * n('c-months');
+    var h = '<div class="big">Em cada reserva de ' + n('c-nights') + ' noites, a Booking leva <span class="n">' + brl(commPer) + '</span>.</div>' +
+      '<p>Em ' + n('c-months') + ' meses de baixa temporada, com ' + n('c-res') + ' reservas por mês, são <span class="n">' + brl0(season) + '</span> só de comissão. Dinheiro de quem acordou cedo, limpou o quarto e serviu o café.</p><hr>';
+    if(save > 0){
+      h += '<p>Se a mesma reserva vier direto, o custo estimado (tráfego mais taxa de pagamento) é ' + brl(directPer) + '. Você retém <span class="n">' + brl(save) + '</span> a mais por reserva, ou cerca de <span class="n">' + brl0(keep) + '</span> no período, e o hóspede passa a ser seu para recompra.</p>';
+    } else {
+      h += '<p>Com esses números, o tráfego custa ' + brl(directPer) + ' por reserva, mais que a comissão. O ganho então vem do hóspede ser seu: contato, recompra e indicação. Revise o custo por reserva depois do teste.</p>';
+    }
+    $('out').innerHTML = h;
+  }
+  ['c-rate','c-nights','c-comm','c-res','c-months','c-gate','c-cac'].forEach(function(id){ $(id).addEventListener('input', calc); });
+  calc();
+
+  /* ---------- pins ---------- */
+  var pins = [
+    {id:'scl', name:'Santiago', region:'Región Metropolitana', lat:33.45, x:128, share:35, tier:'Teste principal',
+     why:'Maior mercado e com voo direto para Florianópolis (a LATAM informa cerca de 3h20). Em 2026, as férias de inverno foram de 22/jun a 3/jul.',
+     aud:'Casais e famílias de 28 a 55 anos na região metropolitana, com interesse em viajes a Brasil, playas e Florianópolis. Depois do teste, público semelhante a quem clicou no WhatsApp.',
+     hook:'Escápate a Florianópolis: playa a pasos y restorán en tu pousada.',
+     body:'Vuelo directo desde Santiago. Habitaciones simples y limpias, frente al mar en Canasvieiras. Reserva directo por WhatsApp.',
+     fmt:'Reels de 15s (a caminhada da porta até o mar), carrossel de quartos e restaurante, clique para WhatsApp.',
+     win:'Teste leve em jan e fev. Escala em mar e abr para vender jun e jul.'},
+    {id:'vlp', name:'Valparaíso e Viña', region:'Región de Valparaíso', lat:33.05, x:100, share:15, tier:'Segunda onda',
+     why:'Mesmo calendário de férias de Santiago (22/jun a 3/jul em 2026) e voo saindo pelo aeroporto de Santiago, a cerca de uma hora e meia de carro.',
+     aud:'Famílias e casais de 28 a 55 anos em Valparaíso, Viña del Mar e Quilpué, com interesse em viajes de playa e escapadas.',
+     hook:'Cambia de aires: Florianópolis a 3 horas en vuelo directo.',
+     body:'Playa a pasos, restorán en la pousada y atención de verdad. Escríbenos por WhatsApp y reserva directo.',
+     fmt:'Mesmos criativos de Santiago, com texto adaptado. Mede-se o custo por reserva separado por UTM.',
+     win:'Abrir após os primeiros resultados de Santiago, por volta de mar.'},
+    {id:'ccp', name:'Concepción', region:'Región del Biobío', lat:36.8, x:104, share:15, tier:'Segunda onda',
+     why:'Grande polo urbano do sul, com férias no mesmo período de Santiago (22/jun a 3/jul em 2026) e conexão por Santiago.',
+     aud:'Famílias de 30 a 55 anos em Concepción, Talcahuano e Chiguayante, com interesse em viajes y turismo internacional.',
+     hook:'Un respiro del invierno sureño: Florianópolis te espera.',
+     body:'Pousada frente al mar en Canasvieiras, con restorán propio. Consulta fechas por WhatsApp.',
+     fmt:'Reels de rotina de praia e do restaurante, com chamada para consultar datas no WhatsApp.',
+     win:'Abrir em abr, com foco em jun e jul.'},
+    {id:'anf', name:'Antofagasta', region:'Región de Antofagasta', lat:23.65, x:110, share:15, tier:'Férias escalonadas',
+     why:'Férias de inverno de 6 a 17/jul em 2026, depois do pico de Santiago. Região mineira, que costuma ter renda mais alta (confirme com dados da plataforma).',
+     aud:'Casais e famílias de 28 a 55 anos em Antofagasta e Calama, com interesse em viajes internacionales y playas de Brasil.',
+     hook:'Julio en Florianópolis: playa, restorán y descanso de verdad.',
+     body:'Reserva directo y consulta tus fechas por WhatsApp. Pousada frente al mar en Canasvieiras.',
+     fmt:'Criativos com datas de julho no texto. Segmentar por cidade e testar horários da noite.',
+     win:'Abrir em abr ou mai, com foco em 6 a 17/jul.'},
+    {id:'pmc', name:'Puerto Montt', region:'Región de Los Lagos', lat:41.47, x:98, share:10, tier:'Férias escalonadas',
+     why:'Férias de 6 a 17/jul em 2026, no sul chuvoso e frio do inverno. Conexão por Santiago.',
+     aud:'Famílias de 30 a 55 anos em Puerto Montt, Puerto Varas e Osorno.',
+     hook:'Cuando llueve en el sur, Florianópolis te abre la puerta.',
+     body:'Habitaciones simples frente al mar. Consulta por WhatsApp y reserva directo.',
+     fmt:'Vídeos curtos de mar e de restaurante, com mensagem de escapada do frio.',
+     win:'Abrir em mai, com foco em 6 a 17/jul.'},
+    {id:'iqq', name:'Iquique', region:'Región de Tarapacá', lat:20.2, x:110, share:10, tier:'Janela mais tardia',
+     why:'Férias de 13 a 24/jul em 2026, a janela mais tardia do país. Ajuda a ocupar o fim de julho.',
+     aud:'Casais e famílias de 28 a 55 anos em Iquique e Alto Hospicio, com interesse em viajes de playa.',
+     hook:'Fin de julio en Florianópolis: aún hay fechas.',
+     body:'Pousada y restorán a pasos de la playa. Reserva directo por WhatsApp.',
+     fmt:'Oferta de datas restantes, com urgência honesta e chamada para WhatsApp.',
+     win:'Abrir em jun, com foco em 13 a 24/jul.'}
+  ];
+  var sel = 0;
+  var svg = $('map'), NS = 'http://www.w3.org/2000/svg';
+  function y(lat){ return 30 + (lat - 17.5) / 26.5 * 600; }
+  function el(tag, attrs, parent){ var e = document.createElementNS(NS, tag); for(var k in attrs) e.setAttribute(k, attrs[k]); if(parent) parent.appendChild(e); return e; }
+
+  el('polygon', {class:'ribbon', points:'104,30 102,170 98,300 94,391 88,470 82,573 80,640 134,640 134,573 136,470 140,391 146,300 150,170 150,30'}, svg);
+  [20,25,30,35,40].forEach(function(lat){
+    var yy = y(lat);
+    el('line', {class:'tick', x1:46, x2:78, y1:yy, y2:yy}, svg);
+    var t = el('text', {class:'tick-l', x:42, y:yy+4, 'text-anchor':'end'}, svg); t.textContent = lat + '°S';
+  });
+  var s1 = el('text', {class:'sea', x:30, y:260, transform:'rotate(-90 30 260)'}, svg); s1.textContent = 'Oceano Pacífico';
+  var s2 = el('text', {class:'sea', x:236, y:200, transform:'rotate(90 236 200)'}, svg); s2.textContent = 'Argentina';
+  var s3 = el('text', {class:'sea', x:130, y:656, 'text-anchor':'middle'}, svg); s3.textContent = 'o país segue ao sul';
+
+  var pinEls = [];
+  pins.forEach(function(p, i){
+    var g = el('g', {class:'pin', tabindex:0, role:'button', 'aria-label':'Campanha ' + (i+1) + ': ' + p.name}, svg);
+    var cy = y(p.lat);
+    el('circle', {cx:p.x, cy:cy, r:12}, g);
+    var num = el('text', {class:'num', x:p.x, y:cy+5.5}, g); num.textContent = i+1;
+    var left = (p.id === 'vlp');
+    var lab = el('text', {class:'lab', x: left ? p.x-18 : p.x+18, y:cy+5, 'text-anchor': left ? 'end' : 'start'}, g); lab.textContent = p.name;
+    g.addEventListener('click', function(){ select(i); });
+    g.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); select(i); } });
+    pinEls.push(g);
+  });
+
+  var picker = $('picker'), btns = [];
+  pins.forEach(function(p, i){
+    var b = document.createElement('button');
+    b.type = 'button'; b.textContent = (i+1) + '. ' + p.name; b.setAttribute('aria-pressed', 'false');
+    b.addEventListener('click', function(){ select(i); });
+    picker.appendChild(b); btns.push(b);
+  });
+
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+  function renderCard(){
+    var p = pins[sel], budget = n('budget');
+    var v = Math.round(budget * p.share / 100);
+    $('card').innerHTML =
+      '<span class="tag">' + esc(p.tier) + '</span>' +
+      '<h3>' + esc(p.name) + '</h3><div class="muted small">' + esc(p.region) + '</div>' +
+      '<dl>' +
+      '<dt>Por que este pin</dt><dd>' + esc(p.why) + '</dd>' +
+      '<dt>Público</dt><dd>' + esc(p.aud) + '</dd>' +
+      '<dt>Anúncio em espanhol</dt><dd><div class="ad"><b>' + esc(p.hook) + '</b>' + esc(p.body) + '</div></dd>' +
+      '<dt>Formato</dt><dd>' + esc(p.fmt) + '</dd>' +
+      '<dt>Janela</dt><dd>' + esc(p.win) + '</dd>' +
+      '<dt>Verba sugerida</dt><dd>' + p.share + '% da verba de teste, cerca de ' + brl0(v) + ' por mês.</dd>' +
+      '</dl><div style="height:10px"></div>';
+  }
+  function select(i){
+    sel = i;
+    pinEls.forEach(function(g, k){ g.classList.toggle('on', k === i); });
+    btns.forEach(function(b, k){ b.setAttribute('aria-pressed', k === i ? 'true' : 'false'); });
+    renderCard();
+  }
+  $('budget').addEventListener('input', renderCard);
+  select(0);
+})();
+</script>
+</body>
+</html>
